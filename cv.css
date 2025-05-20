@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    scroll-behavior: smooth; /* Sayfa içi geçişleri yumuşatır */
+}
+
+header {
+    background-color: #f8b5c0;
+    padding: 18px 0;
+    position: sticky; /* Sayfayı kaydırırken header'ı üstte tutar */
+    top: 0;
+    z-index: 1000; /* Diğer elementlerin üzerinde görünmesini sağlar */
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Menüyü sağa hizalar */
+    align-items: center;
+    padding: 0 20px;
+    position: relative; /* Hamburger menü için konumlandırma */
+}
+
+.baslik {
+    color: white;
+    font-size: 20px; /* Adınızın boyutu */
+    font-weight: bold; /* Adınızın kalınlığı */
+    margin-right: auto; /* Küçük ekranlarda hamburger menü ve linkler itildiğinde, adınızın sola yapışmasını sağlar */
+    font-style: italic;
+    padding-left: 5px;
+}
+
+.baslik a {
+    color: white;
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+}
+
+.baslik a span { 
+    display: inline-block; 
+    position: relative;
+}
+
+.hero-section {
+    display: flex; /* Flexbox'ı etkinleştir */
+    flex-direction: row-reverse; /* Öğeleri yan yana sırala (varsayılan değer) */
+    justify-content: center; /* Öğeleri yatayda ortala */
+    align-items: center; /* Öğeleri dikeyde ortala */
+    flex-wrap: wrap; /* Ekran küçüldüğünde öğeleri alt alta kaydır */
+    padding: 40px 20px; /* Üst/alt ve yan boşluklar */
+    max-width: 1200px; /* Maksimum genişlik belirle */
+    margin: 40px auto; /* Sayfayı ortala */
+    gap: 40px; /* Öğeler arasında boşluk bırak */
+}
+
+.pic-box{
+    position: relative;
+    order: 1;
+    width: 300px;
+}
+
+.pic-box img{
+    width: 100%;
+    height: auto;
+    display: block;
+    align-items: center;
+}
+
+.yazi{
+    color: #c26c7a;
+    font-style: italic;
+    font-weight: 700;
+    align-items: center;
+}
+
+.yazi2 ul li a{
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.yazi2 ul li a:hover{
+    color: #c26c7a;
+}
+
+/* "Hakkımda" içeriği için stil */
+.hakkimda-content {
+    flex: 1; /* Mevcut alanı doldurmaya çalış */
+    min-width: 300px; /* Çok küçük ekranlarda ezilmesini engelle */
+    text-align: left; /* Metni sola hizala */
+    padding: 0; /* Section'ın kendi padding'ini burada sıfırlayabiliriz */
+    border-bottom: none; /* Alt çizgiyi kaldır */
+}
+
+/* Hamburger Menü İkonu */
+.hamburger-menu {
+    width: 30px;
+    height: 25px;
+    display: flex; /* Çizgileri alt alta sıralamak için */
+    flex-direction: column;
+    justify-content: space-around; /* Çizgiler arasında boşluk bırakır */
+    cursor: pointer;
+    z-index: 1001; /* Menü açıldığında bile tıklanabilir olmasını sağlar */
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease; /* Açılış/kapanış animasyonu */
+}
+
+/* Menü Bağlantıları */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Bağlantıları yan yana sıralar */
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffd700; /* Hover rengi */
+}
+
+
+/* Mobil uyumlu hale getirme */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Küçük ekranlarda menüyü varsayılan olarak gizle */
+        flex-direction: column;
+        width: 100%;
+        background-color: #f8b5c0;
+        position: absolute; /* Header içinde konumlandır */
+        top: 100%; /* Header'ın hemen altına */
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        display: flex; /* JavaScript ile aktif edildiğinde göster */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Dikey boşluk */
+    }
+
+    /* Hamburger menü ikonunun dönüşümü (açık/kapalı hali) */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0; /* Orta çizgiyi gizle */
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none; /* Büyük ekranlarda hamburger menüyü gizle */
+    }
+}
+
+/* İçerik Bölümleri için basit stil */
+.section {
+    padding: 60px 20px;
+    min-height: 400px;
+    border-bottom: 1px solid #eee;
+}
+
+.section:nth-child(even) {
+    background-color: #f9f9f9;
+}
