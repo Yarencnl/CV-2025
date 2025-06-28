@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburgerMenu.classList.toggle('active');
     });
 
-    // Menü bağlantısına tıklanınca menüyü kapatma (isteğe bağlı)
+    
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             if (navLinks.classList.contains('active')) {
